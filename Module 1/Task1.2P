@@ -1,0 +1,28 @@
+int ledPin = 13;                
+int inputPin = 2;               
+int sensorState = 0;                
+ 
+void setup() {
+  pinMode(ledPin, OUTPUT);     
+  pinMode(inputPin, INPUT); 
+  attachInterrupt(0,ledchange,CHANGE);
+  Serial.begin(9600);
+}
+ 
+void loop(){
+   
+  delay(10);
+}
+
+void ledchange(){
+ sensorState = digitalRead(inputPin);
+   if (sensorState == HIGH) {
+    Serial.println("Motion detected! Led activated");
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+    Serial.println("No motion detected! Led not activated");
+  }
+  
+  
+}
