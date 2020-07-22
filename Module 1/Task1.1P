@@ -1,0 +1,20 @@
+int ledPin = 13;                
+int inputPin = 2;               
+int sensorState = 0;                
+ 
+void setup() {
+  pinMode(ledPin, OUTPUT);     
+  pinMode(inputPin, INPUT);     
+  Serial.begin(9600);
+}
+ 
+void loop(){
+   sensorState = digitalRead(inputPin);
+   Serial.println(sensorState);
+   if (sensorState == HIGH) {
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+  delay(10);
+}
