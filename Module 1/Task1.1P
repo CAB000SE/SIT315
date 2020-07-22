@@ -10,11 +10,12 @@ void setup() {
  
 void loop(){
    sensorState = digitalRead(inputPin);
-   Serial.println(sensorState);
    if (sensorState == HIGH) {
+    Serial.println("Motion detected! Led activated");
     digitalWrite(ledPin, HIGH);
   } else {
     digitalWrite(ledPin, LOW);
+    Serial.println(" No motion detected! Led not activated");
   }
-  delay(10);
+  delay(100);
 }
